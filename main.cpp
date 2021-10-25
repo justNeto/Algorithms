@@ -72,6 +72,36 @@ void quickSort(int * & arreglo, int low, int high)
 	}
 }
 
+void countingSort(int * & arreglo, int size)
+{
+    int *arrAux = new int[1000]{};
+    int currIndex = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        int current = arreglo[i]; // gets the current index value of the input array
+        arrAux[current]++; // adds one in the counter array at the position of the number
+    }
+
+    for (int j = 0; j < 1000; j++)
+    {
+        if (arrAux[j] > 0)
+        {
+            while (arrAux[j] != 0)
+            {
+                arreglo[currIndex] = arrAux[j];
+                arrAux[j]--;
+                currIndex++;
+            }
+        }
+
+        if (currIndex == size)
+        {
+            break;
+        }
+    }
+}
+
 void fill_random(int * & arreglo, int size)
 {
    srand (time(NULL));
