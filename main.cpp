@@ -101,6 +101,25 @@ void countingSort(int * & arreglo, int size)
         }
     }
 }
+void selectionSort(int * & arreglo, int size)
+{
+    int startFrom = 0; // 12, 3, 4, 1, 0
+
+    while (startFrom != size-1) // 0 != 4, 1 != 4
+    {
+        int min = arreglo[startFrom]; // 12, 3
+        // search for maximum number between startFrom - size
+        for (int i = startFrom+1; i < size; i++) // 1-> 5-0-1 = 4, 2 -> 4
+        {
+            if (arreglo[i] < min) // 3 < 12? yes
+            {
+                min = arreglo[i]; // min = 3,1,0
+            }
+        }
+        swap(min, arreglo[startFrom]); //swaps 12 with 0
+        startFrom++; // startFrom = 1
+    }
+}
 
 void fill_random(int * & arreglo, int size)
 {
